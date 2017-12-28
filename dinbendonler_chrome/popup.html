@@ -1,0 +1,161 @@
+<!Doctype html>
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=big5" />
+
+        <style>
+            body {
+				margin: 0px;
+                padding: 10px;
+            }
+			
+            iframe {
+                display: block;
+            }
+
+            .title {
+                color: #885226;
+				text-align: center;
+				font-size: 20pt;
+                font-weight: bold;
+				padding: 0px;
+                width: 460px;
+            }
+			
+			.login_title {
+                color: #555555;
+				padding-top: 10px;
+				padding-bottom: 5px;
+				font-size: 12pt;
+				font-weight: bold;
+			}
+			
+			.button {
+				border: none;
+				background-color: #885226;
+				color: #ffffff;
+				padding: 5px;
+				font-size: 1ˋ4pt;
+				font-weight: bold;
+			}
+
+            .menu_item {
+                display: inline-block;
+                cursor: pointer;
+                color: #472D19;
+				font-size: 14pt;
+                font-weight: bold;
+				text-align: center;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				width: 92px;
+            }
+
+            .menu_item_hover {
+                background-color: #885226;
+                color: #ffffff;
+                border-radius: 10px 10px 0px 0px;
+            }
+
+            .menu_item_selected {
+                background-color: #472D19;
+                color: #ffffff;
+                border-radius: 10px 10px 0px 0px;
+            }
+
+            #div_content {
+				border:  solid 2px #472D19;
+                background-color: #fafafa;
+				font-size: 14pt;
+				color: #000000;
+            }
+
+            .div_content_item {
+                padding: 8px;
+            }
+
+            .div_content_item_hover {
+				cursor: pointer;
+                background-color: #FCC763;
+            }
+			
+			.div_content_item_selected {
+				padding: 8px;
+				background-color: #F4AE3F;
+			}
+
+            .cancel_item {
+                color: #885226;
+				font-size: 14pt;
+                padding: 8px;
+                cursor: pointer;
+            }
+		
+			#div_message {
+				display: none;
+				margin-top: 10px;
+				padding: 2px;
+				text-align: center;
+				color: #885226;
+				font-size: 12pt;
+				font-weight: bold;
+			}
+
+            .input_text {
+				height: 34px;
+                text-align: center;
+                font-size: 14pt;
+                color: #885226;
+				padding: 0px;
+				margin: 0px;
+				border: solid 2px #885226;
+            }
+        </style>
+
+        <script src="popup.js"></script>
+        <script src="jquery-1.11.2.min.js"></script>
+    </head>
+
+    <body>
+
+        <div class="title">
+			訂扁冬了沒<br />
+			<img id="image" src="" width="240" style="display: none" />
+		</div>
+
+        <!-- Not Logged In Yet -->
+        <div id="div_login" style="display: none; text-align: center;">
+			<center>
+			<table cellspacing="0" cellpadding="0" style="border: none; width: 200px;">
+				<tr>
+					<td><input type="text" placeholder="訂便當帳號" class="input_text" style="margin-bottom: 2px;" id="account" /><input type="password" placeholder="訂便當密碼" class="input_text" style="margin-top: 2px;" id="password" /></td>
+					<td rowspan="2"><input type="button" class="button" style="margin-left: 5px; width: 80px; height: 80px; font-size: 14pt" id="login" value="登入" /></td>
+				</tr>
+			</table>
+        </div>
+
+        <!-- Already Logged In -->
+        <div id="div_info" style="display: none; width: 460px">
+            <span class="menu_item" id="order">訂便當</span><span class="menu_item" id="viewOrder">看預訂</span><span class="menu_item" id="whatToEat">今天吃？</span><span class="menu_item" id="reminder">提醒</span><span class="menu_item" id="logout">登出</span>
+            <div id="div_content"></div>
+            <div id="div_content_hidden" style="display: none"></div>
+        </div>
+		
+		<!-- Reminder -->
+		<div id="div_reminder" style="display: none;">
+			<div id="reminder_trigger_hour_10" hour="10" class="div_content_item">每天10點提醒我</div>
+			<div id="reminder_trigger_hour_11" hour="11" class="div_content_item">每天11點提醒我</div>
+			<div id="reminder_trigger_hour_12" hour="12" class="div_content_item">每天12點提醒我</div>
+			<div id="reminder_trigger_hour_0" hour="0" class="div_content_item">不要提醒我</div>
+		</div>
+		
+		<!-- Message -->
+		<div id="div_message">
+			
+		</div>
+
+    </body>
+
+</html>
