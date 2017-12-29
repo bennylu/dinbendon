@@ -214,6 +214,11 @@ function capture(fullText, fromKeyword, toKeyword) {
 }
 
 function order() {
+    $.ajaxSetup({
+        'beforeSend' : function(xhr) {
+            xhr.overrideMimeType('text/html; charset=big5');
+        }
+    });
     url = serviceUrl + 'Dinner/Order.asp?User=' + savedAccount;
 
     $.get(url, function(result) {
