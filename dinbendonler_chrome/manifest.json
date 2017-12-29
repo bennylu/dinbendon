@@ -3,7 +3,7 @@
 
     "name" : "訂扁冬了沒",
     "description" : "訂扁冬了沒除了提醒您每日記得訂扁冬，也方便讓您查詢今天要拿什麼扁冬，以免拿錯別人的扁冬。",
-    "version" : "1.0.8",
+    "version" : "1.0.9",
 
     "browser_action" : {
         "default_icon" : "small_text.png",
